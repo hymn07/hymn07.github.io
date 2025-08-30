@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yanming Hou | Personal Website</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #334e68;
+            --accent-color: #63b3ed;
+            --text-color: #2d3748;
+            --light-bg: #f8f9fa;
+            --dark-bg: #1a202c;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            margin-bottom: 1rem;
+            background-color: #e2e8f0;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        nav ul li {
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        h1, h2, h3 {
+            color: var(--secondary-color);
+        }
+        
+        h2 {
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .social-links {
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 1rem;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+        
+        .social-links i {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .experience-item, .education-item, .project-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .experience-item:last-child, .education-item:last-child, .project-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .date {
+            color: #718096;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+        }
+        
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            border: 1px solid #e2e8f0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #e2e8f0;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://via.placeholder.com/150" alt="Profile Photo" class="profile-img">
+            <h1>Yanming Hou</h1>
+            <p>Software Developer | Data Scientist | Tech Enthusiast</p>
+            <div class="social-links">
+                <a href="https://github.com/hymn07" target="_blank">
+                    <i class="fab fa-github"></i> GitHub: hymn07
+                </a>
+                <a href="https://www.linkedin.com/in/yanminghou/" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="mailto:example@email.com">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I'm Yanming Hou, a passionate software developer and data scientist. Welcome to my personal website where I showcase my professional journey, projects, and skills.</p>
+            <p>I'm enthusiastic about leveraging technology to solve complex problems and create impactful solutions. With a background in [Your Background], I bring a unique perspective to every project I work on.</p>
+            <p>Feel free to explore my website to learn more about my work and connect with me on GitHub (<a href="https://github.com/hymn07" target="_blank">@hymn07</a>) to see my latest projects and contributions.</p>
+        </section>
+        
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <h3>Senior Software Engineer</h3>
+                <p class="date">January 2020 - Present</p>
+                <p><strong>Company Name</strong> - Location</p>
+                <ul>
+                    <li>Led the development of [specific project/feature], resulting in [specific achievement]</li>
+                    <li>Collaborated with cross-functional teams to implement [specific technology/methodology]</li>
+                    <li>Mentored junior developers and conducted code reviews to ensure code quality</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <h3>Software Developer</h3>
+                <p class="date">June 2017 - December 2019</p>
+                <p><strong>Previous Company</strong> - Location</p>
+                <ul>
+                    <li>Developed and maintained [specific applications/systems]</li>
+                    <li>Implemented [specific features/improvements] that enhanced [specific metrics]</li>
+                    <li>Collaborated with the design team to create intuitive user interfaces</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="education">
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <h3>Master's Degree in Computer Science</h3>
+                <p class="date">2015 - 2017</p>
+                <p><strong>University Name</strong> - Location</p>
+                <p>Specialized in Machine Learning and Data Science</p>
+            </div>
+            
+            <div class="education-item">
+                <h3>Bachelor's Degree in Computer Engineering</h3>
+                <p class="date">2011 - 2015</p>
+                <p><strong>University Name</strong> - Location</p>
+                <p>Minor in Mathematics</p>
+            </div>
+        </section>
+        
+        <section id="projects">
+            <h2>Projects</h2>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x180" alt="Project 1" class="project-img">
+                    <div class="project-content">
+                        <h3>Project Name 1</h3>
+                        <p>A brief description of the project, its purpose, and the technologies used.</p>
+                        <a href="https://github.com/hymn07/project1" class="btn" target="_blank">View on GitHub</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x180" alt="Project 2" class="project-img">
+                    <div class="project-content">
+                        <h3>Project Name 2</h3>
+                        <p>A brief description of the project, its purpose, and the technologies used.</p>
+                        <a href="https://github.com/hymn07/project2" class="btn" target="_blank">View on GitHub</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x180" alt="Project 3" class="project-img">
+                    <div class="project-content">
+                        <h3>Project Name 3</h3>
+                        <p>A brief description of the project, its purpose, and the technologies used.</p>
+                        <a href="https://github.com/hymn07/project3" class="btn" target="_blank">View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills">
+            <h2>Skills</h2>
+            
+            <h3>Programming Languages</h3>
+            <div class="skills-container">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">SQL</span>
+            </div>
+            
+            <h3>Frameworks & Libraries</h3>
+            <div class="skills-container">
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Django</span>
+                <span class="skill-tag">TensorFlow</span>
+                <span class="skill-tag">PyTorch</span>
+            </div>
+            
+            <h3>Tools & Technologies</h3>
+            <div class="skills-container">
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">CI/CD</span>
+                <span class="skill-tag">Agile Methodologies</span>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>I'm always open to discussing new projects, opportunities, or collaborations. Feel free to reach out to me through any of the following channels:</p>
+            
+            <div class="social-links" style="margin-top: 1.5rem; color: var(--text-color);">
+                <a href="https://github.com/hymn07" target="_blank" style="color: var(--text-color);">
+                    <i class="fab fa-github"></i> GitHub: hymn07
+                </a>
+                <a href="https://www.linkedin.com/in/yanminghou/" target="_blank" style="color: var(--text-color);">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="mailto:example@email.com" style="color: var(--text-color);">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 Yanming Hou. All rights reserved.</p>
+        <p>GitHub: <a href="https://github.com/hymn07" target="_blank" style="color: var(--accent-color);">@hymn07</a></p>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add active class to nav items on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.style.color = 'white';
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.style.color = 'var(--accent-color)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
